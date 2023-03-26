@@ -21,3 +21,4 @@ function operate(firstVariable,operator,secondVariable){
         case "/":
           return `${firstVariable} ${operator} ${secondVariable}`;
 }
+}

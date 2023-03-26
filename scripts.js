@@ -1,13 +1,12 @@
-function add(firstVariable,secondVariable){
-    operator = `+`
-    return firstVariable + secondVariable;
+function add(firstVariable,operator,secondVariable){
+    return `${firstVariable} ${operator} ${secondVariable}`;
+}  
+function subtract(firstVariable,operator,secondVariable){
+    return `${firstVariable} ${operator} ${secondVariable}`;
 }
-function subtract(minuend,subtrahend){
-    return minuend - subtrahend;
+function multiply(firstVariable,operator,secondVariable){
+    return `${firstVariable} ${operator} ${secondVariable}`;
 }
-function multiply(firstVariable,secondVariable){
-    return firstVariable * secondVariable;
-}
-function divide(dividend,divisor){
-    return dividend/divisor;
+function divide(firstVariable,operator,secondVariable){
+    return `${firstVariable} ${operator} ${secondVariable}`;
 }

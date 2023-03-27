@@ -1,0 +1,31 @@
+body{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    background-color: rgb(206, 203, 203);
+}
+#frame {
+    border: 5px solid black;
+    padding: 2px;
+    background-color: black;
+}
+#frame-rows{   
+    display: flex;
+    align-items: center;
+    width:100%;
+}
+button{
+    width:  100%;
+    margin:  1px;
+    border: 2px solid orange;
+    border-radius: 5px;
+    font-size: 30px;
+    background-color: white;
+}
+input{
+    height: 30px;
+    outline: none !important;
+    border:2px solid darkgreen;
+}

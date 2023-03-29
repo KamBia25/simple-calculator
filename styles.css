@@ -10,6 +10,7 @@ body{
     border: 5px solid black;
     padding: 2px;
     background-color: black;
+    max-width: 25vh;
 }
 #frame-rows{   
     display: flex;
@@ -25,7 +26,12 @@ button{
     background-color: white;
 }
 input{
+    max-width: 24vh;
     height: 30px;
+    font-size: 20px;
     outline: none !important;
     border:2px solid darkgreen;
+    caret-color: transparent;
+    direction: rtl;
 }
+

@@ -17,7 +17,7 @@ body{
     align-items: center;
     width:100%;
 }
-button{
+.button{
     width:  100%;
     margin:  1px;
     border: 2px solid orange;
@@ -25,13 +25,14 @@ button{
     font-size: 30px;
     background-color: white;
 }
-input{
+#input{
     max-width: 24vh;
     height: 30px;
     font-size: 20px;
     outline: none !important;
     border:2px solid darkgreen;
     caret-color: transparent;
-    direction: rtl;
+    text-align:right;
+   
 }
 

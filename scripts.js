@@ -13,12 +13,19 @@ function divide(firstVariable, operator, secondVariable){
 function operate(firstVariable,operator,secondVariable){
     switch(operator) {
         case "+":
-          return `${firstVariable} ${operator} ${secondVariable}`;
+          add(firstVariable, operator, secondVariable);
         case "-":
-          return `${firstVariable} ${operator} ${secondVariable}`;
+          subtract(firstVariable, operator, secondVariable);
         case "*":
-          return `${firstVariable} ${operator} ${secondVariable}`;
+          multiply(firstVariable, operator, secondVariable);
         case "/":
-          return `${firstVariable} ${operator} ${secondVariable}`;
+          divide(firstVariable, operator, secondVariable);
 }
+}
+let numeralButtons = document.getElementsByClassName("numeral");
+let input = document.getElementById("input");
+for (let i = 0 ; i < numeralButtons.length; i++) {
+  numeralButtons[i].addEventListener('click', function() {
+    input.value = input.value + this.textContent ;
+  });
 }

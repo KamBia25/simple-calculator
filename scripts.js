@@ -43,7 +43,11 @@ for (let i = 0 ; i < numeralButtons.length; i++) {
         input.value = input.value + this.textContent;
         dotButton.removeEventListener('click')
       })
-
+    if(condition==4){
+      clearInput()
+      condition=0;
+      input.value = input.value + this.textContent;
+    }
     if(condition==3){
       clearInput()
       condition-=1;
@@ -73,23 +77,40 @@ for(let i = 0; i < operationalButtons.length; i++){
     else if(condition==2){
       secondVariable=parseFloat(input.value);
       clearInput()
+      if(operator=="/" && secondVariable==0){
+        input.value="ERROR"
+        firstVariable="";
+        secondVariable="";
+        operator="";
+        condition=4;
+      }
+      else{
       input.value=operate(firstVariable, operator, secondVariable)
       firstVariable=parseFloat(input.value); 
       secondVariable="";
       condition+=1;
       operator=button.value;
-    }
+    }}
   })
 }
 const equalsButton = document.getElementById("button-=");
 equalsButton.addEventListener('click',function(){
   if(firstVariable!=""  && operator!=""){
+    if(operator=="/" && secondVariable==0){
+      input.value="ERROR"
+      firstVariable="";
+      secondVariable="";
+      operator="";
+      condition=4;
+    }
+    else{
     secondVariable=parseFloat(input.value);
       clearInput()
       input.value=operate(firstVariable, operator, secondVariable) 
       firstVariable=parseFloat(input.value);
       operator="";  
   }
+}
 })
 
 const clear = document.getElementById("clearButton")

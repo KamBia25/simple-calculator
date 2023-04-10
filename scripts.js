@@ -91,3 +91,12 @@ equalsButton.addEventListener('click',function(){
       operator="";  
   }
 })
+
+const clear = document.getElementById("clearButton")
+clear.addEventListener('click',function(){
+  clearInput()
+  firstVariable="";
+  secondVariable="";
+  operator="";
+  condition=0;
+})

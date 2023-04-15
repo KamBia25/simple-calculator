@@ -24,6 +24,10 @@ function operate(firstVariable, operator, secondVariable) {
       return "Invalid operator";
   }
 }
+let firstVariable="";
+let secondVariable="";
+let operator="";
+let condition=0;
 
 function clearInput(){
   var getValue= document.getElementById("input");
@@ -31,34 +35,63 @@ function clearInput(){
         getValue.value = "";
     }
 }
+function numberButton(event){
+  
+  input.value = input.value + event.target.textContent;
+  let value= input.value;
+  const dotButton = document.getElementById("button-.")
+  dotButton.addEventListener('click', function(){
+    input.value = input.value + this.textContent;
+    dotButton.removeEventListener('click')
+  })
+if(condition==4){
+  clearInput()
+  condition=0;
+  input.value = input.value + event.target.textContent;
 
+}
+if(condition==3){
+  clearInput()
+  condition-=1;
+  input.value = input.value + event.target.textContent;
+
+}
+updateInputValue(value)
+}
+function updateInputValue(value) {
+  if (value.length > maxLength) {
+    value = value.substring(0, maxLength);
+  }
+  input.value = value;
+}
 const numeralButtons = document.getElementsByClassName("numeral");
 let input = document.getElementById("input");
+const maxLength = input.getAttribute("maxLength");
 for (let i = 0 ; i < numeralButtons.length; i++) {
-  numeralButtons[i].addEventListener('click', function() {
-    input.value = input.value + this.textContent;
-
-      const dotButton = document.getElementById("button-.")
-      dotButton.addEventListener('click', function(){
-        input.value = input.value + this.textContent;
-        dotButton.removeEventListener('click')
-      })
-    if(condition==4){
-      clearInput()
-      condition=0;
-      input.value = input.value + this.textContent;
-    }
-    if(condition==3){
-      clearInput()
-      condition-=1;
-      input.value = input.value + this.textContent;
-    }
+  numeralButtons[i].addEventListener('click', function(event){
+    numberButton(event);
   });
+  // numeralButtons[i].addEventListener('click', function() {
+  //   input.value = input.value + this.textContent;
+
+  //     const dotButton = document.getElementById("button-.")
+  //     dotButton.addEventListener('click', function(){
+  //       input.value = input.value + this.textContent;
+  //       dotButton.removeEventListener('click')
+  //     })
+  //   if(condition==4){
+  //     clearInput()
+  //     condition=0;
+  //     input.value = input.value + this.textContent;
+  //   }
+  //   if(condition==3){
+  //     clearInput()
+  //     condition-=1;
+  //     input.value = input.value + this.textContent;
+  //   }
+  // });
 }
-let firstVariable="";
-let secondVariable="";
-let operator="";
-let condition=0;
+
 const operationalButtons = document.getElementsByClassName("operational");
 for(let i = 0; i < operationalButtons.length; i++){
   operationalButtons[i].addEventListener('click',function(event){
@@ -121,3 +154,21 @@ clear.addEventListener('click',function(){
   operator="";
   condition=0;
 })
+
+
+// const buttons = document.querySelectorAll('.my-button');
+//   buttons.forEach(button => {
+//     button.addEventListener('click', () => {
+//       const value = button.textContent;
+//       console.log(`Button ${value} was clicked`);
+//     });
+//   });
+
+//   ['mousemove', 'touchmove'].forEach(function(e){
+//     window.addEventListener(e,mouseMoveHandler,false);
+//   });
+
+// ['mousemove', 'touchmove'].forEach(function(event){
+//   window.addEventListener(event,mouseMoveHandler,false);
+//   numberButton(event)
+//  });

@@ -11,7 +11,7 @@
 <body>
     <div id="frame">
         <div id="frame-rows">
-            <input id="input" maxlength="18" type="text" onblur="this.focus()" autofocus>
+            <input id="input" maxlength="18" type="text" onblur="this.focus()" autofocus onkeypress="return checkNumber(event)">
         </div>
         <div id="frame-rows">
             <button class="button numeral" id="button-7" value="7">7</button>
@@ -33,13 +33,14 @@
             <button class="button operational" id="button--" value="-">-</button>
         </div>
         <div id="frame-rows">
-            <button class="button numeral" id="button-0">0</button>
-            <button class="button" id="button-.">.</button>
+            <button class="button numeral" id="button-0" value="0">0</button>
+            <button class="button" id="button-." value=".">.</button>
             <button class="button operational" id="button-+" value="+">+</button>
-            <button class="button" id="button-=">=</button>
+            <button class="button" id="button-=" value="=">=</button>
         </div>
         <div id="frame-rows">
-            <button class="button" id="clearButton">clear</button>
+            <button class="button" id="clearButton">CLEAR</button>
+            <button class="button" id="backspaceButton">DELETE</button>
         </div>
     </div>
 </body>

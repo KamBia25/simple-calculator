@@ -81,6 +81,7 @@ function add(firstVariable, secondVariable){
    operationalButtons[i].addEventListener('click',function(event)
    {
     const button = event.target;
+    if(input.value!=""){
     if(firstVariable==""  && condition==0){
     firstVariable=parseFloat(input.value);
     operator=button.value;
@@ -109,13 +110,26 @@ function add(firstVariable, secondVariable){
       secondVariable="";
       condition+=1;
       operator=button.value;
-    }}
+    }}}
   }
   )}
-    
+  input.addEventListener("keydown",function(event){
+    if(checkNumber(event)==true){
+      if(condition==4){
+        clearInput()
+        condition=0;
+        input.value = input.value + this.textContent;
+      }
+      if(condition==3){
+        clearInput()
+        condition-=1;
+        input.value = input.value + this.textContent;
+      }
+    }
+   })
     
 input.addEventListener("keydown", function(event){
-  
+  if(input.value!=""){
   if(event.key === '+' || event.key === '-' || event.key === '*' || event.key === '/')
   {
     console.log(event.key)
@@ -159,7 +173,7 @@ input.addEventListener("keydown", function(event){
       
     
        
-  }
+    }}
 })
 
 input.addEventListener('keydown', function(event){
@@ -180,6 +194,7 @@ input.addEventListener('keydown', function(event){
 
  const equalsButton = document.getElementById("button-=");
  equalsButton.addEventListener('click',function(){
+  if(input.value!=""){
    if(firstVariable!=""  && operator!=""){
     secondVariable=parseFloat(input.value); 
      if(operator=="/" && secondVariable==0){
@@ -200,10 +215,11 @@ input.addEventListener('keydown', function(event){
        condition=0;
        
    }
- }
+ }}
  })
 
  input.addEventListener("keydown", function(event){
+  if(input.value!=""){
   if(event.key === '='){
     if(firstVariable!=""  && operator!=""){
       secondVariable=parseFloat(input.value); 
@@ -227,7 +243,7 @@ input.addEventListener('keydown', function(event){
      }
    }
   }
- }
+ }}
  )
  const clear = document.getElementById("clearButton")
  clear.addEventListener('click',function(){
@@ -237,6 +253,15 @@ input.addEventListener('keydown', function(event){
    operator="";
    condition=0;
  })
+
+ input.onkeydown = function (event) {
+
+  if (event.which == 8 || event.which == 46) { 
+
+     event.preventDefault(); 
+
+    
+   } };      
 
  const backspace = document.getElementById("backspaceButton")
  backspace.addEventListener('click',function(){
@@ -253,6 +278,23 @@ var numbersFromInput = input.value;
  console.log(numbersFromInput) 
  input.value =  numbersFromInput;
  });
+input.addEventListener("keydown", function(event){
+  if (event.which == 8 || event.which == 46){
+    var numbersFromInput = input.value;
+ console.log(numbersFromInput);
+ let numberToArray = num => Number(num); 
+      
+    var arrayFromInput= Array.from(String(numbersFromInput), numberToArray);
+ console.log(arrayFromInput);
+ arrayFromInput.pop();
+ console.log(arrayFromInput)
+ numbersFromInput = arrayFromInput.join('');
+
+ console.log(numbersFromInput) 
+ input.value =  numbersFromInput;
+  }
+
+})
 
 // const buttons = document.querySelectorAll('.my-button');
 //   buttons.forEach(button => {

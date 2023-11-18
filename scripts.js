@@ -44,16 +44,7 @@ function add(firstVariable, secondVariable){
    numeralButtons[i].addEventListener('click', function() {
      input.value = input.value + this.textContent;
  
-       const dotButton = document.getElementById("button-.")
-       dotButton.addEventListener('click', function(){
-        if (input.value.includes(".")){
-          dotButton.removeEventListener('click',true)
-         }
-         else
-         input.value = input.value + this.textContent;
-         
-         
-       },{once : true})
+ 
       
      if(condition==4){
        clearInput()
@@ -71,7 +62,18 @@ function add(firstVariable, secondVariable){
  let secondVariable="";
  let operator="";
  let condition=0;
-
+ 
+ 
+ const dotButton = document.getElementById("button-.")
+ dotButton.addEventListener('click', function(){
+  if (input.value.includes(".")){
+    dotButton.removeEventListener('click',true)
+   }
+   else
+   input.value = input.value + this.textContent;
+   
+   
+ })
 
 
 
@@ -267,7 +269,7 @@ input.addEventListener('keydown', function(event){
  backspace.addEventListener('click',function(){
 var numbersFromInput = input.value;
  console.log(numbersFromInput);
- let numberToArray = num => Number(num); 
+ let numberToArray = num => (num === '.' ? num : Number(num));
       
     var arrayFromInput= Array.from(String(numbersFromInput), numberToArray);
  console.log(arrayFromInput);
@@ -282,7 +284,7 @@ input.addEventListener("keydown", function(event){
   if (event.which == 8 || event.which == 46){
     var numbersFromInput = input.value;
  console.log(numbersFromInput);
- let numberToArray = num => Number(num); 
+ let numberToArray = num => (num === '.' ? num : Number(num));
       
     var arrayFromInput= Array.from(String(numbersFromInput), numberToArray);
  console.log(arrayFromInput);
